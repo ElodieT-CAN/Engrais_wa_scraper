@@ -70,7 +70,7 @@ def parse_data(html):
                 pass
 
     return data
-
+print("DEBUG DATA:", data)
 
 # -----------------------------
 # 3. Normalisation colonnes CSV
