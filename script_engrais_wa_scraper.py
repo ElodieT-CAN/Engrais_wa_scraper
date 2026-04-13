@@ -70,7 +70,6 @@ def parse_data(html):
                 pass
 
     return data
-print("DEBUG DATA:", data)
 
 # -----------------------------
 # 3. Normalisation colonnes CSV
@@ -134,7 +133,7 @@ def save_csv(engrais_wa_scrap):
     row = [date]
 
     for col in columns[1:]:
-        row.append(data.get(col, ""))
+        row.append(engrais-wa-scrap.get(col, ""))
 
     with open(FILE, "a", newline="") as f:
         writer = csv.writer(f)
