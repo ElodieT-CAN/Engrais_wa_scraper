@@ -114,7 +114,7 @@ def save_csv(data):
         "dap",
         "mop",
         "solaz",
-        "superpx3",
+        "superp3x",
         "uree"
     ]
 
@@ -137,7 +137,7 @@ def save_csv(data):
         row.append(data.get(col, ""))
 
     with open(FILE, "a", newline="") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f,delimiter=";")
 
         if not file_exists:
             writer.writerow(columns)
