@@ -90,7 +90,7 @@ def normalize(engrais_wa_scrap):
 
     result = {}
 
-    for k, v in data.items():
+    for k, v in engrais-wa-scrap.items():
         if k in mapping:
             result[mapping[k]] = v
 
