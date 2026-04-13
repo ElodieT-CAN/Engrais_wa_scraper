@@ -23,6 +23,6 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add engrais_wa_scrap.csv
+          git add data.csv
           git commit -m "daily update"
           git push
