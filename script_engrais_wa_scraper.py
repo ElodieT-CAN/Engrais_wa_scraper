@@ -6,7 +6,7 @@ from datetime import datetime
 
 URL = "https://www.web-agri.fr/marches-agricoles/engrais"
 
-FILE = "engrais_wa_scrap.csv"
+FILE = "data.csv"
 
 
 # -----------------------------
@@ -71,14 +71,15 @@ def parse_data(html):
 
     return data
 
+
 # -----------------------------
 # 3. Normalisation colonnes CSV
 # -----------------------------
-def normalize(engrais_wa_scrap):
+def normalize(data):
 
     mapping = {
         "PK": "pk",
-        "Triple 17": "3x17",
+        "Triple 17": "x317",
         "Ammonitrate 27%": "ammo27",
         "Ammonitrate 33.5%": "ammo33",
         "DAP": "dap",
@@ -90,7 +91,7 @@ def normalize(engrais_wa_scrap):
 
     result = {}
 
-    for k, v in engrais-wa-scrap.items():
+    for k, v in data.items():
         if k in mapping:
             result[mapping[k]] = v
 
@@ -100,20 +101,20 @@ def normalize(engrais_wa_scrap):
 # -----------------------------
 # 4. Sauvegarde CSV
 # -----------------------------
-def save_csv(engrais_wa_scrap):
+def save_csv(data):
 
     date = datetime.now().strftime("%Y-%m-%d")
 
     columns = [
         "date",
         "pk",
-        "3x17",
+        "x317",
         "ammo27",
         "ammo33",
         "dap",
         "mop",
         "solaz",
-        "superp3x",
+        "superpx3",
         "uree"
     ]
 
@@ -133,7 +134,7 @@ def save_csv(engrais_wa_scrap):
     row = [date]
 
     for col in columns[1:]:
-        row.append(engrais-wa-scrap.get(col, ""))
+        row.append(data.get(col, ""))
 
     with open(FILE, "a", newline="") as f:
         writer = csv.writer(f)
